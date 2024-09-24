@@ -26,7 +26,7 @@ donationTab.addEventListener('click', function(){
 // donation for noakhali
 const donateButton = document.getElementById('donate-button').addEventListener('click', function(){
     
-    const donateAmount = parseFloat(getInputFieldById('donate-amount'));
+    const donateAmount = getInputFieldById('donate-amount');
 
     const balance = parseFloat(getInputInnerTextById('balance'));
     const totalBalance = parseFloat(getInputInnerTextById('savings'));
@@ -34,29 +34,25 @@ const donateButton = document.getElementById('donate-button').addEventListener('
 
     if(!isNaN(donateAmount) && donateAmount > 0){
         
-        const newBalance = balance + donateAmount;
-        const remainingSavings = totalBalance - donateAmount;
+        const donateAmountFloat = parseFloat(donateAmount)
+        const newBalance = balance + donateAmountFloat;
+        const remainingSavings = totalBalance - donateAmountFloat;
 
         const balanceOfNoakhali = document.getElementById('balance');
         balanceOfNoakhali.innerText = newBalance;
 
         const afterDonateSavings = document.getElementById('savings');
         afterDonateSavings.innerText = remainingSavings;
+
+        document.getElementById('my_modal_5').showModal();
+
+        addToHistory(donateAmountFloat, donateTitle)
         
     } 
     else{
         alert('This is not a valid input')
-    }
-    
-    const historyItem = document.createElement('div');
-    historyItem.className = 'bg-white p-3 rounded-md'
-    historyItem.innerHTML =`
-    <p> ${donateAmount} Taka ${donateTitle}  </p>
-     <p> ${new Date().toLocaleString()} </p>
 
-    `;
-    const historyContainer = document.getElementById('history-list')
-    historyContainer.insertBefore(historyItem , historyContainer.firstChild)
+    }   
    
 })
 
@@ -64,7 +60,7 @@ const donateButton = document.getElementById('donate-button').addEventListener('
 
 const donateOfFeni = document.getElementById('donate-button-feni').addEventListener('click', function(){
     
-    const donateAmountOfFeni = parseFloat(getInputFieldById('donate-amount-feni'));
+    const donateAmountOfFeni = getInputFieldById('donate-amount-feni');
 
     const balance = parseFloat(getInputInnerTextById('balance-feni'));
     const totalBalance = parseFloat(getInputInnerTextById('savings'));
@@ -72,37 +68,34 @@ const donateOfFeni = document.getElementById('donate-button-feni').addEventListe
 
     if(!isNaN(donateAmountOfFeni) && donateAmountOfFeni > 0){
         
-        const newBalance = balance + donateAmountOfFeni;
-        const remainingSavings = totalBalance - donateAmountOfFeni;
+        const donateAmountOfFeniFloat = parseFloat(donateAmountOfFeni)
+        const newBalance = balance + donateAmountOfFeniFloat;
+        const remainingSavings = totalBalance - donateAmountOfFeniFloat;
 
-        const balanceOfFeni = document.getElementById('balance');
+        const balanceOfFeni = document.getElementById('balance-feni');
         balanceOfFeni.innerText = newBalance;
 
         const afterDonateSavings = document.getElementById('savings');
         afterDonateSavings.innerText = remainingSavings;
+
+        document.getElementById('my_modal_5').showModal();
+
+        addToHistory(donateAmountOfFeniFloat, donateTitle)
         
     } 
     else{
         alert('This is not a valid input')
     }
-
-    const historyItem = document.createElement('div');
-    historyItem.className = 'bg-white p-3 rounded-md'
-    historyItem.innerHTML =`
-    <p> ${donateAmountOfFeni} Taka ${donateTitle}  </p>
-     <p> ${new Date().toLocaleString()} </p>
-
-    `;
-    const historyContainer = document.getElementById('history-list')
-    historyContainer.insertBefore(historyItem , historyContainer.firstChild)
+  
 
 })
 
-//donate of quota
+
+//donation for quota movement
 
 const donateOfQuota = document.getElementById('donate-button-quota').addEventListener('click', function(){
     
-    const donateAmountOfQuota = parseFloat(getInputFieldById('donate-amount-quota'));
+    const donateAmountOfQuota = getInputFieldById('donate-amount-quota');
 
     const balance = parseFloat(getInputInnerTextById('balance-quota'));
     const totalBalance = parseFloat(getInputInnerTextById('savings'));
@@ -110,28 +103,24 @@ const donateOfQuota = document.getElementById('donate-button-quota').addEventLis
 
     if(!isNaN(donateAmountOfQuota) && donateAmountOfQuota > 0){
         
-        const newBalance = balance + donateAmountOfQuota;
-        const remainingSavings = totalBalance - donateAmountOfQuota;
+        const donateAmountOfQuotaFloat = parseFloat(donateAmountOfQuota)
+        const newBalance = balance + donateAmountOfQuotaFloat;
+        const remainingSavings = totalBalance - donateAmountOfQuotaFloat;
 
-        const balanceOfQuota = document.getElementById('balance');
+        const balanceOfQuota = document.getElementById('balance-quota');
         balanceOfQuota.innerText = newBalance;
 
         const afterDonateSavings = document.getElementById('savings');
         afterDonateSavings.innerText = remainingSavings;
+
+        document.getElementById('my_modal_5').showModal();
+
+        addToHistory(donateAmountOfQuotaFloat, donateTitle)
         
     } 
     else{
-        alert('This is not a valid input')
+        alert('This is not a valid input');
+
     }
-
-    const historyItem = document.createElement('div');
-    historyItem.className = 'bg-white p-3 rounded-md'
-    historyItem.innerHTML =`
-    <p> ${donateAmountOfQuota} Taka ${donateTitle}  </p>
-     <p> ${new Date().toLocaleString()} </p>
-
-    `;
-    const historyContainer = document.getElementById('history-list')
-    historyContainer.insertBefore(historyItem , historyContainer.firstChild)
-
+   
 })
