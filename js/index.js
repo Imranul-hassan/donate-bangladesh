@@ -10,6 +10,7 @@ historyTab.addEventListener('click', function(){
     donationTab.classList.remove('bg-[#ABEF5F]');
 
     document.getElementById('donate-container').classList.add('hidden');
+    document.getElementById('footer').classList.add('hidden');
     document.getElementById('history-container').classList.remove('hidden');
 })
 
@@ -19,6 +20,7 @@ donationTab.addEventListener('click', function(){
     historyTab.classList.remove('bg-[#ABEF5F]');
 
      document.getElementById('history-container').classList.add('hidden');
+     document.getElementById('footer').classList.remove('hidden');
      document.getElementById('donate-container').classList.remove('hidden');
 })
 
